@@ -1,20 +1,50 @@
 # CmsDashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+這個專案是使用 [Angular CLI](https://github.com/angular/angular-cli) 版本 20.0.3 建立的。
 
-## Development server
+## 開發伺服器
 
-To start a local development server, run:
+要啟動本地開發伺服器，請執行：
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+一旦伺服器執行，請開啟瀏覽器並導航至 `http://localhost:4200/`。當您修改任何原始檔案時，應用程式會自動重新載入。
 
-## Code scaffolding
+## CI/CD 部署
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+此專案已設定 GitHub Actions 自動部署到 GitHub Pages。
+
+### 設定步驟
+
+1. **在 GitHub 儲存庫設定中啟用 GitHub Pages：**
+   - 前往您的 GitHub 儲存庫
+   - 點擊 `Settings` 標籤
+   - 滾動到 `Pages` 區段
+   - 在 `Source` 下選擇 `GitHub Actions`
+
+2. **推送程式碼到 master 分支：**
+   ```bash
+   git add .
+   git commit -m "Add CI/CD workflow"
+   git push origin master
+   ```
+
+3. **檢查部署狀態：**
+   - 前往 `Actions` 標籤查看工作流程執行情況
+   - 部署完成後，您的網站將可在 `https://yourusername.github.io/cms-dashboard/` 存取
+
+### 工作流程功能
+
+- **自動測試：** 每次推送都會執行單元測試
+- **建構驗證：** 確保專案可以成功建構
+- **自動部署：** 只有 master 分支的變更會觸發部署
+- **快取最佳化：** 使用 npm 快取加速建構過程
+
+## 程式碼原理圖
+
+Angular CLI 包含強大的程式碼原理圖工具。要產生新元件，請執行：
 
 ```bash
 ng generate component component-name
